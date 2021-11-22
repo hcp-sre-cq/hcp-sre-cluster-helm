@@ -17,4 +17,4 @@ spec:
       name: {{ .Values.hpa.rscType }}
       target:
         type: Utilization
-        averageUtilization: 70
+        averageUtilization: 60
