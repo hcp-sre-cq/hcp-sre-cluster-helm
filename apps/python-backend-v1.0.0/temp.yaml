@@ -1,0 +1,79 @@
+---
+# Source: python-backend/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hcp-test-app-new1
+  labels:
+    app: hcp-test-app-new1
+    prjName: hcp-test
+    svcName: hcp-test-app-new1
+spec:
+  selector:
+    app: hcp-test-app-new1
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: ClusterIP
+---
+# Source: python-backend/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hcp-test-app-new1
+  labels:
+    app: hcp-test-app-new1
+    prjName: hcp-test
+    svcName: hcp-test-app-new1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hcp-test-app-new1
+  template:
+    metadata:
+      labels:
+        app: hcp-test-app-new1
+        prjName: hcp-test
+        svcName: hcp-test-app-new1
+    spec:
+      containers:
+      - name: hcp-test-app-new1
+        image: harbor.hcpcq.kubepia.net/hcp-test/hcp-test-app-new1
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {}
+---
+# Source: python-backend/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hcp-test-app-new1
+  labels:
+    app: hcp-test-app-new1
+    prjName: hcp-test
+    svcName: hcp-test-app-new1
+spec:
+  rules:
+    - host: hcp-test-app-new1.hcpcq.kubepia.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hcp-test-app-new1
+                port:
+                  number: 8080
