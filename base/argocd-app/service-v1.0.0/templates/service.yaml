@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app-git-{{ .Values.name }}
+  namespace: hcp-sre-argocd
+  labels:
+    prjName: {{ .Values.prjName }}
+spec:
+  project: applications
+  source:
+    repoURL: {{ .Values.repoURL }}
+    path: {{ .Values.cluster }}/{{ .Values.prjName }}/apps/{{ .Values.svcName }}
+    targetRevision: HEAD
+    # directory:
+    #   recurse: true
+  destination:
+    server: {{ .Values.server }}
+    namespace: {{ .Values.namespace }}
+  revisionHistoryLimit: 10
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

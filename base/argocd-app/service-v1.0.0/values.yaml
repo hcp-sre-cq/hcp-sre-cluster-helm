@@ -1,0 +1,8 @@
+cluster: hcpcq-aws
+repoURL: https://github.com/hcp-sre-cq/hcp-sre-cluster-deploy.git
+server: https://kubernetes.default.svc
+
+name: hcp-test3-app-new3
+namespace: hcp-test3
+prjName: hcp-test3
+svcName: hcp-test3-app-new3

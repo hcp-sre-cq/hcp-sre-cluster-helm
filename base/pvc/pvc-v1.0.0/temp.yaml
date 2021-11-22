@@ -1,0 +1,16 @@
+---
+# Source: pvc/templates/pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hcp-test-pvc-new1
+  labels:
+    app: hcp-test-pvc-new1
+    prjName: hcp-test
+    svcName: hcp-test-pvc-new1
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

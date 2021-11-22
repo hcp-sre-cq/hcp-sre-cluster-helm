@@ -1,0 +1,5 @@
+common.name: hcp-test-o
+common.labels.prjName: hcp-test-o
+common.labels.svcName: hcp-test-o-svc
+pvc.accessModes: [a,b,c]
+pvc.storage: 1Gi
