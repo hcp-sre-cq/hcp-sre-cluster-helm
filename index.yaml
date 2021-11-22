@@ -6,7 +6,7 @@ entries:
         - "[Changed]: Restore RBAC permissions and clarify namespace settings."
     apiVersion: v2
     appVersion: v3.2.3
-    created: "2021-11-22T15:04:41.260562+09:00"
+    created: "2021-11-22T16:14:17.568132+09:00"
     description: A Helm chart for Argo Workflows
     digest: 610a025e95cc25558b7c60e26ebf25b1ffc5f006b60e567ef8ba5726cdcbc54d
     home: https://github.com/argoproj/argo-helm
@@ -21,6 +21,6 @@ entries:
     - https://github.com/argoproj/argo-workflows
     type: application
     urls:
-    - argo-workflows-0.8.1.tgz
+    - ./argo-workflows-0.8.1/Chart.yaml
     version: 0.8.1
-generated: "2021-11-22T15:04:41.258533+09:00"
+generated: "2021-11-22T16:14:17.566496+09:00"
