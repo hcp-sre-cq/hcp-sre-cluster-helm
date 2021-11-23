@@ -3,7 +3,7 @@ entries:
   fastapi:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-23T14:43:55.057055+09:00"
+    created: "2021-11-23T15:55:45.765891+09:00"
     description: A Helm chart for fastapi (python)
     digest: 0ab8fd18b4da4f2c34943f50175d974a9315e2462cc04e70cb44052ef2d056d3
     name: fastapi
@@ -11,10 +11,21 @@ entries:
     urls:
     - fastapi-1.0.0.tgz
     version: 1.0.0
-  python-backend:
+  project:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-23T14:43:55.058161+09:00"
+    created: "2021-11-23T15:55:45.766187+09:00"
+    description: A Helm chart for project
+    digest: 0b1e5d986745d7f80bb43892cb46f64195f10e0370d8bb75ee71cbe48cf5bc2a
+    name: project
+    type: application
+    urls:
+    - project-1.0.0.tgz
+    version: 1.0.0
+  python-backend:
+  - apiVersion: v2
+    appVersion: v1.0.0
+    created: "2021-11-23T15:55:45.769144+09:00"
     description: A Helm chart for python-backend
     digest: 7da77f9e5609bd0902c6ba888b25f72f24b6425835ab7ece0cbe38f4e13bb833
     name: python-backend
@@ -24,7 +35,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2021-11-23T14:43:55.05761+09:00"
+    created: "2021-11-23T15:55:45.767083+09:00"
     description: A Helm chart for python-backend
     digest: 1c1fe055da89482f38dd7fb68e12bf24cebbafd2551487d7c0fa885aa4ab938a
     name: python-backend
@@ -32,4 +43,4 @@ entries:
     urls:
     - python-backend-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-23T14:43:55.05634+09:00"
+generated: "2021-11-23T15:55:45.764825+09:00"
