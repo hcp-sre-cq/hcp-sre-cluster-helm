@@ -13,7 +13,7 @@ entries:
     version: 1.0.0
   python-backend:
   - apiVersion: v2
-    appVersion: v1.0.0
+    appVersion: 1.0.0
     created: "2021-11-23T14:43:55.058161+09:00"
     description: A Helm chart for python-backend
     digest: 7da77f9e5609bd0902c6ba888b25f72f24b6425835ab7ece0cbe38f4e13bb833
