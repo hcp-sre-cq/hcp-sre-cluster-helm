@@ -1,0 +1,75 @@
+common:
+  name: hcp-test-app-new1
+  labels:
+    prjName: hcp-test
+    svcName: hcp-test-app-new1
+
+deployment:
+  labels: {}
+  replicas: 1
+  image: harbor.hcpcq.kubepia.net/hcp-test/hcp-test-app-new1
+  containerName: hcp-test-app-new1
+  containerPort: 8080
+  podLabels: {}
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  env:
+    # - name: a
+    #   value: a
+    # - name: b
+    #   value: b
+  readinessProbe:
+    # httpGet:
+    #   path: /
+    #   port: 8080
+    # initialDelaySeconds: 10
+    # periodSeconds: 20
+  livenessProbe:
+    # httpGet:
+    #   path: /
+    #   port: 8080
+    # initialDelaySeconds: 60
+    # periodSeconds: 20
+  volumeMounts:
+    # - name: pvc
+    #   mountPath: /pvc
+  volumes:
+    # - name: pvc
+    #   persistentVolumeClaim:
+    #     claimName: pvcname
+  serviceAccountName: 
+  securityContext:
+  nodeSelector:
+  tolerations:
+    # - effect: NoExecute
+    #   key: node.kubernetes.io/not-ready
+    #   operator: Exists
+    #   tolerationSeconds: 300
+  affinity:
+
+service:
+  enabled: true
+  labels: {}
+  type: ClusterIP # ClusterIP, NodePort
+  port: 8080
+  targetPort: 8080
+  nodePort: 
+
+ingress:
+  enabled: true
+  labels: {}
+  host: hcp-test-app-new1.hcpcq.kubepia.net
+  path: /
+  pathType: Prefix
+  serviceName: hcp-test-app-new1
+  servicePort: 8080
+
+hpa:
+  rscType: cpu
+  minReplicas: 1
+  maxReplicas: 10 
