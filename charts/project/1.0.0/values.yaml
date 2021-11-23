@@ -1,1 +1,4 @@
-namespace: hcp-test1
+name: hcp-test1
+
+repoURL:
+server: 
