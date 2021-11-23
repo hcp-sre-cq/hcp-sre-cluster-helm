@@ -1,6 +1,0 @@
-apiVersion: v2
-appVersion: v1.0.0
-description: A Helm chart for job
-name: job
-type: application
-version: 1.0.0
