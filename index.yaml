@@ -3,12 +3,12 @@ entries:
   python-backend:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2021-11-23T11:37:36.728462+09:00"
+    created: "2021-11-23T11:42:02.319683+09:00"
     description: A Helm chart for python-backend
-    digest: 9f9753b6bb5bf13c5cc065dfc38005c94e934a01f3c6a36b808aa122d1f20382
+    digest: d6c4da642e7e04f2f9a7f5c1638054b3bf28757fc0ac68f71e738d410814e4f0
     name: python-backend
     type: application
     urls:
     - python-backend-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-23T11:37:36.727415+09:00"
+generated: "2021-11-23T11:42:02.31709+09:00"
