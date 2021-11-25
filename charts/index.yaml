@@ -3,7 +3,7 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-25T16:37:49.020163+09:00"
+    created: "2021-11-25T17:56:35.726706+09:00"
     description: A Helm chart for DWP App. Service
     digest: 6308802967a21c3055d5a99a1ac510a177759c8774d6637284e71a86718ecb10
     name: app
@@ -14,7 +14,7 @@ entries:
   fastapi:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-25T16:37:49.020777+09:00"
+    created: "2021-11-25T17:56:35.727228+09:00"
     description: A Helm chart for fastapi (python)
     digest: 0ab8fd18b4da4f2c34943f50175d974a9315e2462cc04e70cb44052ef2d056d3
     name: fastapi
@@ -22,10 +22,21 @@ entries:
     urls:
     - fastapi-1.0.0.tgz
     version: 1.0.0
+  job:
+  - apiVersion: v2
+    appVersion: v1.0.0
+    created: "2021-11-25T17:56:35.727588+09:00"
+    description: A Helm chart for job
+    digest: d07beff104a2ff6a11e76c6c839a1f1979b3eb4508047ad3425774756b7a6d26
+    name: job
+    type: application
+    urls:
+    - job-1.0.0.tgz
+    version: 1.0.0
   project:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-25T16:37:49.021217+09:00"
+    created: "2021-11-25T17:56:35.727968+09:00"
     description: A Helm chart for project
     digest: 870b24c36f6baa2d5c7cd4114b40c1cd2abb37a7f2c41ba8b2b88e45c075861e
     name: project
@@ -36,7 +47,7 @@ entries:
   python-backend:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-25T16:37:49.02176+09:00"
+    created: "2021-11-25T17:56:35.728539+09:00"
     description: A Helm chart for python-backend
     digest: abb617af890f537a068097b1db08bfe93ed70e88502e2f84dc6c050a5ed4aecb
     name: python-backend
@@ -44,4 +55,4 @@ entries:
     urls:
     - python-backend-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-25T16:37:49.019244+09:00"
+generated: "2021-11-25T17:56:35.725778+09:00"
