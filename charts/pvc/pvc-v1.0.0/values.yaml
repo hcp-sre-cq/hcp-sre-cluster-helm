@@ -1,0 +1,10 @@
+common:
+  name: hcp-test-pvc-new1
+  labels:
+    prjName: hcp-test
+    svcName: hcp-test-pvc-new1
+
+pvc:
+  accessModes:
+    - ReadWriteOnce
+  storage: 1Gi
