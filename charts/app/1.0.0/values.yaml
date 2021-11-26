@@ -3,6 +3,8 @@ common:
   labels:
     prjName: hcp-sre-cq
     svcName: hcp-sre-apps-app
+    rscType: app
+    rscSubType: fastapi
 
 deployment:
   labels: {}
