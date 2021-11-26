@@ -1,0 +1,102 @@
+# Source: jupyterlab/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.common.name }}
+  labels:
+    app: {{ .Values.common.name }}
+    {{- with .Values.common.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.ingress.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  # strategy:
+  #   type: Recreate
+  selector:
+    matchLabels:
+      app: {{ .Values.common.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.common.name }}
+        {{- with .Values.common.labels }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with .Values.deployment.podLabels }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+      - env:
+        - name: PJT_ID
+          value: {{ .Values.common.labels.prjName }}
+        - name: SHELL
+          value: /bin/bash  
+        name: {{ .Values.common.name }}
+        image: {{ .Values.deployment.image }}       
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+          name: port0
+        command:
+        - /bin/bash
+        - /run-script/run.sh
+        volumeMounts:
+        - name: dshm
+          mountPath: /dev/shm
+        - name: config
+          mountPath: /home/dsproject/.jupyter/jupyter_notebook_config.py   
+          subPath: jupyter_notebook_config.py
+        - name: config
+          mountPath: /run-script/run.sh
+          subPath: run.sh          
+        - name: nfs-work
+          mountPath: /project/workSpace/
+        - name: tz-config
+          mountPath: /etc/localtime           
+        resources:
+          limits:
+            memory: 16Gi
+            cpu: 4
+            nvidia.com/gpu: 0
+          requests:
+            memory: 16Gi
+            cpu: 4
+            nvidia.com/gpu: 0
+        securityContext:
+          capabilities:
+            add:
+            - SYS_ADMIN
+            - DAC_READ_SEARCH
+          privileged: false
+        workingDir: /project/workSpace/
+      securityContext:
+        runAsUser: 1002
+        sysctls:
+        - name: net.core.somaxconn
+          value: "3000"        
+      shareProcessNamespace: true 
+      # tolerations:
+      # - effect: NoSchedule
+      #   key: division
+      #   operator: Equal
+      #   value: hcp-cpu 
+      # nodeSelector:
+      #   division: hcp-cpu
+      volumes:
+      - name: dshm
+        emptyDir:
+          medium: Memory
+          sizeLimit: 1Gi
+      - name: config
+        configMap:
+          name: {{ .Values.common.name }}
+          defaultMode: 420  
+      - name: tz-config
+        hostPath:
+          path: /usr/share/zoneinfo/Asia/Seoul
+      - name: nfs-work
+        emptyDir: {}

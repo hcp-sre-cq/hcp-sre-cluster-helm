@@ -1,0 +1,20 @@
+# Source: jupyterlab/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.common.name }}
+  labels:
+    app: {{ .Values.common.name }}
+    {{- with .Values.common.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.service.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  type: ClusterIP
+  ports:
+  - name: port0
+    port: 8888
+    protocol: TCP
+    targetPort: 8888

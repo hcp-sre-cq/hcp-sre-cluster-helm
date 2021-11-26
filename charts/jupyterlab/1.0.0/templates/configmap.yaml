@@ -1,0 +1,52 @@
+# Source: jupyterlab/templates/jupyterlab-cm.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.common.name }}
+  labels:
+    app: {{ .Values.common.name }}
+    {{- with .Values.common.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.service.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }} 
+data:
+  run.sh: |-
+    #!/bin/bash
+    sudo apt-get update
+    
+    sudo touch /tmp/healthy
+    DIR_NAME=/project/workSpace
+    SHARED_POOL="/project/pjt_shared_pool"
+    EXT_NAS="/external_storage"
+    
+    MEMORY=`expr "16Gi" : '\([0-9]*\)' \* 1024 \* 1024 \* 1024 \* 9 / 10`
+    jupyter lab --allow-root \
+        --ip=0.0.0.0 \
+        --port=8888 \
+        --NotebookApp.allow_origin="*" \
+        --NotebookApp.token='' \
+        --NotebookApp.notebook_dir="$DIR_NAME" \
+        --NotebookApp.webbrowser_open_new=0 \
+        --NotebookApp.max_buffer_size=$MEMORY \
+        --NotebookApp.disable_check_xsrf=True \
+        --NotebookApp.shutdown_no_activity_timeout=0
+        --NotebookApp.tornado_settings="{ 'headers': { 'Content-Security-Policy': \"frame-ancestors 'self' *\" }}"  
+    
+    # sleep infinity & wait
+  jupyter_notebook_config.py: |-
+    # Configuration file for jupyter-notebook.
+    from IPython.lib import passwd
+    import sys,os
+    
+    #USER env setting
+    os.environ["PASSWORD"] = str("notebook")
+    
+    # PATH ADD
+    
+    password = passwd(str(os.environ["PASSWORD"]))
+    
+    c = get_config()
+    c.NotebookApp.open_browser = False
+    c.NotebookApp.password = '%s' % (password)

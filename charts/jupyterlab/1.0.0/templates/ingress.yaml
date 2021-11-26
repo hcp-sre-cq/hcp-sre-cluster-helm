@@ -1,0 +1,26 @@
+# Source: jupyterlab/templates/ingress.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.common.name }}
+  labels:
+    app: {{ .Values.common.name }}
+    {{- with .Values.common.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.ingress.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+#    ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/proxy-body-size: "0"
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: {{ .Values.ingress.path }}
+        backend:
+          serviceName: {{ .Values.ingress.serviceName }}
+          servicePort: 8888
+ 
