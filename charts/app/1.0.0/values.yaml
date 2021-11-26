@@ -58,3 +58,4 @@ hpa:
   rscType: cpu
   minReplicas: 1
   maxReplicas: 5
+  avgUtil: 80
