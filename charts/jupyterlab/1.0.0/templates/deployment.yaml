@@ -59,25 +59,25 @@ spec:
           mountPath: /etc/localtime           
         resources:
           limits:
-            memory: 16Gi
-            cpu: 4
+            memory: 2Gi
+            cpu: 1
             nvidia.com/gpu: 0
           requests:
-            memory: 16Gi
-            cpu: 4
+            memory: 2Gi
+            cpu: 1
             nvidia.com/gpu: 0
-        securityContext:
-          capabilities:
-            add:
-            - SYS_ADMIN
-            - DAC_READ_SEARCH
-          privileged: false
-        workingDir: /project/workSpace/
-      securityContext:
-        runAsUser: 1002
-        sysctls:
-        - name: net.core.somaxconn
-          value: "3000"        
+      #   securityContext:
+      #     capabilities:
+      #       add:
+      #       - SYS_ADMIN
+      #       - DAC_READ_SEARCH
+      #     privileged: false
+      #   workingDir: /project/workSpace/
+      # securityContext:
+      #   runAsUser: 1002
+      #   sysctls:
+      #   - name: net.core.somaxconn
+      #     value: "3000"        
       shareProcessNamespace: true 
       # tolerations:
       # - effect: NoSchedule
