@@ -4,6 +4,7 @@ common:
     prjName: hcp-test
     svcName: hcp-test-pvc-new1
     rscType: pvc
+    rscSybType: ""
 
 pvc:
   accessModes:
