@@ -8,55 +8,25 @@ common:
     locId: hcpcq-aws
 
 deployment:
-  labels: {}
   replicas: 1
   image: harbor.hcpcq.kubepia.net/kmchoi-test/jupyterlab
-  containerName: hcp-sre-jupyter-lab
-  containerPort: 8000
-  podLabels: {}
-    # prjName: hcp-test
-    # svcName: hcp-test-app-new1
-  resources: {}
-    # requests:
-    #   cpu: 200m
-    #   memory: 1Gi
-    # limits:
-    #   cpu: 500m
-    #   memory: 1Gi
-  env: {}
-    # - name: a
-    #   value: a
-    # - name: b
-    #   value: b
-  volumeMounts: {}
-    # - name: pvc
-    #   mountPath: /pvc
-  volumes: {}
-    # - name: pvc
-    #   persistentVolumeClaim:
-    #     claimName: pvcname
+  resources: 
+    requests:
+      cpu: 1
+      memory: 2Gi
+    limits:
+      cpu: 1
+      memory: 2Gi
 
 service:
   enabled: true
-  labels: {}
-    # prjName: hcp-test
-    # svcName: hcp-test-app-new1
   type: ClusterIP # ClusterIP, NodePort
   port: 8000
   targetPort: 8000
-  nodePort: 
 
 ingress:
   enabled: true
-  labels: {}
   host: hcp-sre-jupyter-lab.hcpcq.kubepia.net
   path: /
-  pathType: Prefix
   serviceName: hcp-sre-jupyter-lab
   servicePort: 8000
-
-hpa:
-  rscType: cpu
-  minReplicas: 1
-  maxReplicas: 5
-  avgUtil: 80

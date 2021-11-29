@@ -25,9 +25,6 @@ spec:
         {{- with .Values.common.labels }}
           {{- toYaml . | nindent 8 }}
         {{- end }}
-        {{- with .Values.deployment.podLabels }}
-          {{- toYaml . | nindent 8 }}
-        {{- end }}
     spec:
       containers:
       - env:
@@ -59,13 +56,11 @@ spec:
           mountPath: /etc/localtime           
         resources:
           limits:
-            memory: 2Gi
-            cpu: 1
-            nvidia.com/gpu: 0
+            memory: {{ .Values.deployment.resources.limits.memory }}
+            cpu: {{ .Values.deployment.resources.limits.cpu }}
           requests:
-            memory: 2Gi
-            cpu: 1
-            nvidia.com/gpu: 0
+            memory: {{ .Values.deployment.resources.requests.memory }}
+            cpu: {{ .Values.deployment.resources.requests.cpu }}
       #   securityContext:
       #     capabilities:
       #       add:

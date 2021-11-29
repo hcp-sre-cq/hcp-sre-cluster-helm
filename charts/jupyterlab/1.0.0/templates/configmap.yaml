@@ -8,9 +8,6 @@ metadata:
     {{- with .Values.common.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- with .Values.service.labels }}
-      {{- toYaml . | nindent 4 }}
-    {{- end }} 
 data:
   run.sh: |-
     #!/bin/bash

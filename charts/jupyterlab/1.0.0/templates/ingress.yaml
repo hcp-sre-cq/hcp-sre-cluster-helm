@@ -8,9 +8,6 @@ metadata:
     {{- with .Values.common.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- with .Values.ingress.labels }}
-      {{- toYaml . | nindent 4 }}
-    {{- end }}
   annotations:
 #    ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/proxy-body-size: "0"
@@ -22,5 +19,5 @@ spec:
       - path: {{ .Values.ingress.path }}
         backend:
           serviceName: {{ .Values.ingress.serviceName }}
-          servicePort: 8888
+          servicePort: {{ .Values.ingress.servicePort }}
  
