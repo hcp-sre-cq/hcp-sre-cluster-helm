@@ -16,5 +16,4 @@ spec:
     protocol: TCP
     targetPort: {{ .Values.service.targetPort }}
   selector:
-    prjName: {{ .Values.common.labels.prjName }}
-    svcname: {{ .Values.common.labels.svcName }}
+    app: {{ .Values.common.name }}
