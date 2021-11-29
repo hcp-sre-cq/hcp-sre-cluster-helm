@@ -1,10 +1,10 @@
 common:
-  name: hcp-test-jupyter-lab2
+  name: hcp-test-jupyterlab
   labels:
     prjName: hcp-test
-    svcName: hcp-test-jupyter-lab2
-    rscType: app
-    rscSubType: fastapi
+    svcName: jupyterlab
+    rscType: helm
+    rscSubType: jupyterlab
     locId: hcpcq-aws
 
 deployment:
@@ -26,7 +26,7 @@ service:
 
 ingress:
   enabled: true
-  host: hcp-test-jupyter-lab2.hcpcq.kubepia.net
+  host: hcp-test-jupyterlab.hcpcq.kubepia.net
   path: /
-  serviceName: hcp-test-jupyter-lab2
+  serviceName: jupyterlab
   servicePort: 8000
