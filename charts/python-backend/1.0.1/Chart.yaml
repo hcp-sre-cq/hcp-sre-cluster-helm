@@ -1,6 +1,0 @@
-apiVersion: v2
-appVersion: 1.0.1
-description: A Helm chart for python-backend
-name: python-backend
-type: application
-version: 1.0.1

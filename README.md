@@ -27,4 +27,4 @@ helm package . --destination ../../../charts
 helm repo index ../../../charts
 ```
 
-끝.
+.끝.
