@@ -1,8 +1,8 @@
 common:
-  name: hcp-test1-project
+  name: hcp-test1
   labels:
     prjName: hcp-test1
-    svcName: hcp-test1-project
+    svcName: hcp-test1
     rscType: project
     rscSubType: none
 
