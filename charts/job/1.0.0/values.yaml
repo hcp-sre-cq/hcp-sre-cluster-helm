@@ -1,7 +1,10 @@
 common:
-  name: hcp-test-job-new1
+  name: hcp-test1-job001
   labels:
-    prjName: hcp-test
+    prjName: hcp-test1
+    svcName: hcp-test1-job001
+    rscType: job
+    rscSubType: none
 
 job:
   image: perl
