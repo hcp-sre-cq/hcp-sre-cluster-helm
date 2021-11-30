@@ -9,7 +9,7 @@ common:
 job:
   image: perl
   labels:
-    jobName: hcp-test-job-new1
+    jobName: hcp-test1-job001
   command:
     - perl
   args:
