@@ -36,9 +36,9 @@ entries:
   job:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2021-12-02T11:34:25.372447+09:00"
+    created: "2021-11-30T15:28:54.491312+09:00"
     description: A Helm chart for job
-    digest: d07beff104a2ff6a11e76c6c839a1f1979b3eb4508047ad3425774756b7a6d26
+    digest: 7899cbe025fb2bae11bb677a4ba2738467861e0b0241b2e167fb9c5843c03930
     name: job
     type: application
     urls:
@@ -60,7 +60,7 @@ entries:
     appVersion: 1.0.0
     created: "2021-12-02T11:34:25.374245+09:00"
     description: A Helm chart for project
-    digest: 870b24c36f6baa2d5c7cd4114b40c1cd2abb37a7f2c41ba8b2b88e45c075861e
+    digest: d94e6c1eef60d5619bda3396a928cc4a14915f324e05a54816b636ccdd7c6f37
     name: project
     type: application
     urls:

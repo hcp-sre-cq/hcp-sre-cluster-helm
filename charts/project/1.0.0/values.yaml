@@ -1,1 +1,10 @@
-name: hcp-test1
+common:
+  name: hcp-test1
+  labels:
+    prjName: hcp-test1
+    svcName: hcp-test1
+    rscType: project
+    rscSubType: none
+
+namespace:
+  name: hcp-test1
