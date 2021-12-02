@@ -1,0 +1,20 @@
+common:
+  name: hcp-test-cronjob-new1
+  labels:
+    prjName: hcp-test
+
+job:
+  image: busybox
+  labels:
+    jobName: hcp-test-cronjob-new1
+  command:
+    - /bin/sh
+    - -c
+    - date; echo Hello from the Kubernetes cluster
+  args:
+    - -Mbignum=bpi
+    - -wle
+    - print bpi(2000)
+
+cronjob:
+  schedule: 0 0 * * *

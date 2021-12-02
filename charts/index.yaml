@@ -3,7 +3,7 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-29T15:45:33.003595+09:00"
+    created: "2021-12-02T11:34:25.369999+09:00"
     description: A Helm chart for DWP App. Service
     digest: 8b89091e041f699742975c077959d8c362cd7fc61b4592803a1220aaeff12b37
     name: app
@@ -11,10 +11,21 @@ entries:
     urls:
     - app-1.0.0.tgz
     version: 1.0.0
+  cronjob:
+  - apiVersion: v2
+    appVersion: v1.0.0
+    created: "2021-12-02T11:34:25.370359+09:00"
+    description: A Helm chart for cronjob
+    digest: 857b198e2cf60e6f85b311e41f301b4829ecbbfac71243928b242af2bb6f3482
+    name: cronjob
+    type: application
+    urls:
+    - cronjob-1.0.0.tgz
+    version: 1.0.0
   fastapi:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-29T15:45:33.004511+09:00"
+    created: "2021-12-02T11:34:25.371339+09:00"
     description: A Helm chart for fastapi (python)
     digest: 0ab8fd18b4da4f2c34943f50175d974a9315e2462cc04e70cb44052ef2d056d3
     name: fastapi
@@ -25,7 +36,7 @@ entries:
   job:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2021-11-29T15:45:33.005295+09:00"
+    created: "2021-12-02T11:34:25.372447+09:00"
     description: A Helm chart for job
     digest: d07beff104a2ff6a11e76c6c839a1f1979b3eb4508047ad3425774756b7a6d26
     name: job
@@ -36,9 +47,9 @@ entries:
   jupyterlab:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2021-11-29T15:45:33.00621+09:00"
+    created: "2021-12-02T11:34:25.373574+09:00"
     description: A Helm chart for DWP DS Service
-    digest: 190d49248a657dbff65383e03542f4f8e0f9f15bc6a8274ed4b5f864a0f84d7c
+    digest: f96cba82216c1e8c8f8a8909b95ac9ffb86aef646890591f9b188140a77be9f8
     name: jupyterlab
     type: application
     urls:
@@ -47,7 +58,7 @@ entries:
   project:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-29T15:45:33.006891+09:00"
+    created: "2021-12-02T11:34:25.374245+09:00"
     description: A Helm chart for project
     digest: 870b24c36f6baa2d5c7cd4114b40c1cd2abb37a7f2c41ba8b2b88e45c075861e
     name: project
@@ -58,7 +69,7 @@ entries:
   pvc:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2021-11-29T15:45:33.007298+09:00"
+    created: "2021-12-02T11:34:25.375422+09:00"
     description: A Helm chart for pvc
     digest: e36f8672cc4d08b3ca0040ad5be0f4c6fa449748d7e07d31cd1e430246e4f869
     name: pvc
@@ -69,7 +80,7 @@ entries:
   python-backend:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-29T15:45:33.008607+09:00"
+    created: "2021-12-02T11:34:25.376404+09:00"
     description: A Helm chart for python-backend
     digest: abb617af890f537a068097b1db08bfe93ed70e88502e2f84dc6c050a5ed4aecb
     name: python-backend
@@ -77,4 +88,4 @@ entries:
     urls:
     - python-backend-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-29T15:45:33.00063+09:00"
+generated: "2021-12-02T11:34:25.368962+09:00"

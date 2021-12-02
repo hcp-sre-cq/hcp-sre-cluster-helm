@@ -21,12 +21,12 @@ deployment:
 service:
   enabled: true
   type: ClusterIP # ClusterIP, NodePort
-  port: 8000
-  targetPort: 8000
+  port: 8888
+  targetPort: 8888
 
 ingress:
   enabled: true
   host: hcp-test-jupyterlab.hcpcq.kubepia.net
   path: /
   serviceName: jupyterlab
-  servicePort: 8000
+  servicePort: 8888
