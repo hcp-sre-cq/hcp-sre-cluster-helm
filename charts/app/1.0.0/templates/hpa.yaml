@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.common.labels.svcName }}-hpa
+  name: {{ .Values.common.labels.svcName }}
   labels: 
     prjId: {{ .Values.common.labels.prjName }}
 spec:
