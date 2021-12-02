@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ .Values.common.name }}-{{ now | date "20060102150405" }}
+  name: {{ .Values.common.name }}
   # generateName: {{ .Values.common.name }}-
   annotations:
     argocd.argoproj.io/hook: Sync
