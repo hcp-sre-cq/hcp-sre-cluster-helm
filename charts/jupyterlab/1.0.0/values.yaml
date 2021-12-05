@@ -26,7 +26,9 @@ service:
 
 ingress:
   enabled: true
+  labels: {}
   host: hcp-test-jupyterlab.hcpcq.kubepia.net
   path: /
+  pathType: Prefix
   serviceName: jupyterlab
   servicePort: 8888

@@ -1,4 +1,4 @@
-# Source: jupyterlab/templates/ingress.yaml
+{{- if .Values.ingress.enabled -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -8,16 +8,19 @@ metadata:
     {{- with .Values.common.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-  annotations:
-#    ingress.kubernetes.io/rewrite-target: /
-    ingress.kubernetes.io/proxy-body-size: "0"
+    {{- with .Values.ingress.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   rules:
-  - host: {{ .Values.ingress.host }}
-    http:
-      paths:
-      - path: {{ .Values.ingress.path }}
-        backend:
-          serviceName: {{ .Values.common.name }}
-          servicePort: {{ .Values.ingress.servicePort }}
- 
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.path }}
+            pathType: {{ .Values.ingress.pathType }}
+            backend:
+              service:
+                name: {{ .Values.ingress.serviceName }}
+                port:
+                  number: {{ .Values.ingress.servicePort }}
+{{- end -}}
