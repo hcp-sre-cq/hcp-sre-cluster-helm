@@ -4,9 +4,6 @@ metadata:
   name: {{ .Values.common.name }}
   labels:
     app: {{ .Values.common.name }}
-    {{- with .Values.common.labels }}
-      {{- toYaml . | nindent 4 }}
-    {{- end }}
     {{- with .Values.deployment.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
